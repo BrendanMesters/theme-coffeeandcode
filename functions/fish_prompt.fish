@@ -30,6 +30,10 @@ set __fish_git_prompt_showdirtystate true
 set __fish_git_prompt_showstashstate true
 set __fish_git_prompt_showuntrackedfiles true
 
+set __fish_small_right ''
+set __fish_small_left ''
+set __fish_big_right ''
+set __fish_big_left ''
 
 function fish_prompt --description 'Write out the prompt'
 
@@ -46,8 +50,9 @@ function fish_prompt --description 'Write out the prompt'
 
   function prompt_time
     #echo -n "⎩"(date +%H:%M)"⎫"
-    echo -n "⟨"(date +%H:%M)"⟩"
+    #echo -n "⟨"(date +%H:%M)"⟩"
     #echo -n "⎱"(date +%H:%M)"⎱"
+    echo -n   (date +%H:%M)
 
   end
 
@@ -118,6 +123,8 @@ function fish_prompt --description 'Write out the prompt'
     set -g __fish_prompt_host (set_color $fish_color_host)
   end
 
-  echo -s '' (prompt_time) "$__fish_prompt_user"  ' ' "$USER" @ "$__fish_prompt_host" "$__fish_prompt_hostname " "$__fish_prompt_normal"' ' "$__fish_prompt_cwd" (prompt_pwd)
+
+
+  echo -s '' (prompt_time)  "$__fish_prompt_user"  ' ' "$USER" @ "$__fish_prompt_host" "$__fish_prompt_hostname " "$__fish_prompt_normal"' ' "$__fish_prompt_cwd" (prompt_pwd)
   echo -s (__fish_git_prompt) "$__fish_prompt_normal" "$delim" ' '
 end
