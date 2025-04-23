@@ -44,6 +44,13 @@ function fish_prompt --description 'Write out the prompt'
     set -g __fish_prompt_normal (set_color normal)
   end
 
+  function prompt_time
+    #echo -n "⎩"(date +%H:%M)"⎫"
+    echo -n "⟨"(date +%H:%M)"⟩"
+    #echo -n "⎱"(date +%H:%M)"⎱"
+
+  end
+
   function prompt_pwd
     echo $PWD | sed -e "s|^$HOME|~|"
   end
@@ -111,6 +118,6 @@ function fish_prompt --description 'Write out the prompt'
     set -g __fish_prompt_host (set_color $fish_color_host)
   end
 
-  echo -s "$__fish_prompt_user" "$USER" @ "$__fish_prompt_host" "$__fish_prompt_hostname" "$__fish_prompt_normal" ' ' "$__fish_prompt_cwd" (prompt_pwd)
+  echo -s '' (prompt_time) "$__fish_prompt_user"  ' ' "$USER" @ "$__fish_prompt_host" "$__fish_prompt_hostname " "$__fish_prompt_normal"' ' "$__fish_prompt_cwd" (prompt_pwd)
   echo -s (__fish_git_prompt) "$__fish_prompt_normal" "$delim" ' '
 end
