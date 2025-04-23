@@ -30,11 +30,6 @@ set __fish_git_prompt_showdirtystate true
 set __fish_git_prompt_showstashstate true
 set __fish_git_prompt_showuntrackedfiles true
 
-set __fish_small_right ''
-set __fish_small_left ''
-set __fish_big_right ''
-set __fish_big_left ''
-
 function fish_prompt --description 'Write out the prompt'
 
   set -l last_status $status
